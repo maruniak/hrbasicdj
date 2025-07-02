@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:60511
+    volumes:
+      - .:/code
+    ports:
+      - "60511:60511"
+    environment:
+      - DEBUG=1
+      - ALLOWED_HOSTS=*
