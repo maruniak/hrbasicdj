@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Card</title>
+  <style>
+    /* Простые стили для печати */
+    body { font-family: sans-serif; margin: 2cm; }
+    h1 { text-align: center; }
+    .field { margin-bottom: 1em; }
+    .label { font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Employee Card</h1>
+  <div class="field">
+    <span class="label">Name:</span> {{ employee.name }}
+  </div>
+  <div class="field">
+    <span class="label">Birthday:</span> {{ employee.birthday }}
+  </div>
+  <div class="field">
+    <span class="label">Organization:</span> {{ employee.organization.name }}
+  </div>
+</body>
+</html>
