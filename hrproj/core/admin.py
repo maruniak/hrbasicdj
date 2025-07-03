@@ -11,6 +11,8 @@ class OrganizationAdmin(admin.ModelAdmin):
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
     list_display = ('name', 'birthday', 'organization', 'pdf_link')
+    readonly_fields = ('photo_thumb',)
+    fields = ('name', 'birthday', 'organization', 'photo', 'photo_thumb')    
 
     def pdf_link(self, obj):
         return format_html(
@@ -18,3 +20,9 @@ class EmployeeAdmin(admin.ModelAdmin):
             reverse('employee_card_pdf', args=[obj.pk])
         )
     pdf_link.short_description = "Card"
+    
+    def photo_thumb(self, obj):
+        if obj.photo:
+            return format_html('<img src="{}" style="max-height:100px;"/>', obj.photo.url)
+        return "-"
+    photo_thumb.short_description = "Current Photo"

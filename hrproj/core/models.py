@@ -15,6 +15,12 @@ class Employee(models.Model):
         related_name="employees",
         verbose_name="Organization"
     )
+    photo = models.ImageField(
+        upload_to='employee_photos/',
+        blank=True,    # фото необязательно
+        null=True,
+        verbose_name="Photo"
+    )
 
     def __str__(self):
         return f"{self.name} ({self.organization.name})"

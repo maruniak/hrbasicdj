@@ -1,3 +1,4 @@
 Django>=4.2
 django-grappelli
 xhtml2pdf
+Pillow
